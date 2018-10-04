@@ -2,15 +2,11 @@ from sqlalchemy import Column, ForeignKey, Integer, String, Boolean, DateTime
 
 from .. import Base
 
-class Payment(Base):
-    __tablename__ = 'payments'
+class PaymentMethod(Base):
+    __tablename__ = 'paymentmethods'
 
-    id = Column(Integer, primary_key=True)
-    customer_id = Column(Integer) # Contains a relationship
-    payment_date = Column(DateTime)
-    value = Column(Integer)
-    quantity = Column(Integer)
-    payment_method_id = Column(Integer) # Contains a relationship
+    id = Column(Integer, primary_key=True) # Contains a relationship
+    method = Column(Integer) 
 
     """
     def __init__():
@@ -18,5 +14,5 @@ class Payment(Base):
     """
 
     def __repr__(self):
-        return "<Payment(Customer={}, Payment_id={})".format(self.customer_id, self.id)
+        return "<PaymentMethod(Method={}, Id={})".format(self.method, self.id)
     
