@@ -2,11 +2,13 @@
 APPLICATION FACTORY FUNCTION
 """
 
-
 from flask import Flask, jsonify
+
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
+
+from flask_bootstrap import Bootstrap
 
 
 DATABASE_URI = 'mysql+pymysql://mac:09876@localhost/horus'
@@ -26,10 +28,13 @@ def register_blueprints(app):
     from application.api import appi
     app.register_blueprint(appi, url_prefix='/api')
 
+def initialize_extensions(app):
+    Bootstrap(app)
+
 def create_app(config_filename = None):
     app = Flask(__name__)
     # Initialize extensions
-    # initialize_extensions(app)
+    initialize_extensions(app)
     register_blueprints(app)
     return app
 

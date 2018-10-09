@@ -3,10 +3,13 @@ from application import session
 from urllib.parse import urlparse
 
 from application.api import appi
+from application.models import Customer
 
 @appi.route('/customer/search', methods=['GET'])
 def get_customer():
-    return jsonify({'message':'<h1> Customer retrieve </h1>'})
+    custest = Customer('Juan','Valencia','jcvalencia22@gmail.com','123456')
+    custest = str(custest)
+    return jsonify({'message':custest})
 
 @appi.route('/customer/', methods=['POST'])
 def post_customer():

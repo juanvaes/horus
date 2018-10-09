@@ -1,7 +1,6 @@
 from sqlalchemy import Column, ForeignKey, Integer, String, Boolean, DateTime
 
-from .. import Base
-
+from application import Base, session
 
 class Customer(Base):
     __tablename__ = 'customers'
@@ -29,13 +28,13 @@ class Customer(Base):
     postal_code = Column(Integer)
     picture = Column(String(30)) 
 
-    """
+    
     def __init__(self, fname, lname, email, password):
         self.fname = fname
         self.lname = lname
         self.email = email
         self.password = password
-    """
+
 
     def __repr__(self):
         return "<Customer(Name={} {}, id={})".format(self.fname, self.lname, self.id)
