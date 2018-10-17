@@ -6,8 +6,9 @@ class SideBar extends React.Component {
         return(
             <div>
                 <h3>Menú</h3>
-                <a src="#">Usuarios</a>
-                <a src="#">Pagos</a>
+                <a href="/"></a>
+                <a href="/users">Usuarios</a>
+                <a href="/payments">Pagos</a>
             </div>
         );
     }
