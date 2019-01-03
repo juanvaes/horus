@@ -5,7 +5,8 @@ class ClientRegister extends React.Component{
         return(
             <div>
                 <h1>Register Client</h1>
-                <p>Olalalala</p>
+                <p>Oleeeea</p>
+                <h4>MMmmmmmm let's see</h4>
             </div>
         )
     }
