@@ -1,0 +1,12 @@
+.sidebar{
+    background-color: #273746;
+    width: 30%;
+    height: 100vh;
+    padding-left: 10px;
+}
+
+.sidebar h3{
+    color:whitesmoke;
+    text-align: center;
+    padding: 2px;
+}

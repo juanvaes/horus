@@ -12,20 +12,15 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="App">
-          <div className="container">
             <div className="row">
-              Navbar
-              <br/>
+                <SideBar/>
+                <Route  exact path='/' component={Home}/>
+                <Route path='/client' component={RegisterClient}/>
+                <Route path='/payment' component={Payments}/>
             </div>
-            <div className="row">
-              <div className="col-lg-10"></div>
-              <div className="col-lg-10"></div>
+            <div className="container">
+
             </div>
-          <SideBar/>
-          <Route  exact path='/' component={Home}/>
-          <Route path='/client' component={RegisterClient}/>
-          <Route path='/payment' component={Payments}/>
-          </div>
         </div>
       </BrowserRouter>
     );
