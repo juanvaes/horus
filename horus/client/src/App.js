@@ -18,9 +18,6 @@ class App extends Component {
                 <Route path='/client' component={RegisterClient}/>
                 <Route path='/payment' component={Payments}/>
             </div>
-            <div className="container">
-
-            </div>
         </div>
       </BrowserRouter>
     );
