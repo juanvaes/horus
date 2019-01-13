@@ -2,8 +2,8 @@ from sqlalchemy import Column, ForeignKey, Integer, String, Boolean, DateTime
 
 from application import Base, session
 
-class Customer(Base):
-    __tablename__ = 'customers'
+class Client(Base):
+    __tablename__ = 'client'
 
     id = Column(Integer, primary_key=True)
     fname = Column(String(30))
@@ -37,8 +37,22 @@ class Customer(Base):
 
 
     def __repr__(self):
-        return "<Customer(Name={} {}, id={})".format(self.fname, self.lname, self.id)
+        return "<Client(Name={} {}, id={})".format(self.fname, self.lname, self.id)
     
-    def create_customer(self):
+    def create(self):
+        print(self)
+        # Verify client doesn't exist
+        # Insert client to the database
+        # Get a response from database and return it
+        return "Cliente"
+    
+    def get(self, client):
         pass
+    
+    def update(self, client):
+        pass
+    
+    def delete(self, client):
+        pass
+        
 

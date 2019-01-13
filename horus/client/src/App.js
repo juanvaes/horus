@@ -13,10 +13,14 @@ class App extends Component {
       <BrowserRouter>
         <div className="App">
             <div className="row">
+              <div className="col-lg-2">
                 <SideBar/>
+              </div>
+              <div className="col-lg-10">
                 <Route  exact path='/' component={Home}/>
                 <Route path='/client' component={RegisterClient}/>
                 <Route path='/payment' component={Payments}/>
+              </div>
             </div>
         </div>
       </BrowserRouter>

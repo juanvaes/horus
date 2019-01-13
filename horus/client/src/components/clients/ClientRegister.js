@@ -32,11 +32,9 @@ class ClientRegister extends React.Component{
     handleSubmit = (event) => {
         event.preventDefault(); {/*Prevents the default behaviour of refresh the page when submit */}
         console.log('Form submitted', this.state);
-        const user = {
-            user: this.state
-        };
+        const user = this.state;
 
-        axios.post('http://localhost:3000/customer/', { user })
+        axios.post('http://localhost:5000/api/client/', { user })
             .then(res => {
                 console.log(res);
                 console.log(res.data);
