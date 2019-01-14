@@ -14,11 +14,10 @@ def get_client():
 @appi.route('/client/', methods=['POST'])
 def post_client():
     data = request.json # gets the data as dictionary
-    print(data)
-    client = Client(data['user']['fname'],data['user']['lname'], data['user']['email'], data['user']['password'])
+    client = Client()
+    client.to_obj(data)
     response = Client.create(client)
-    print(response)
-    return jsonify({'message':'<h1> Client saved </h1>'})
+    return jsonify({'message':'<h1> Response </h1>'})
 
 @appi.route('/client/', methods=['PUT'])
 def put_client():

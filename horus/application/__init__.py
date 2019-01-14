@@ -10,7 +10,7 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
 
-DATABASE_URI = 'mysql+pymysql://dellsupport@localhost/horux'
+DATABASE_URI = 'mysql+pymysql://dellsupport:09876@localhost/horux'
 
 # Base is a factory function that constructs a base class, and the entities 
 # are going to inherit from it 
@@ -47,4 +47,4 @@ def create_app(config_filename = None):
 
 
 from .models import Client
-# Customer.metadata.create_all(bind=engine)
+Client.metadata.create_all(bind=engine)
