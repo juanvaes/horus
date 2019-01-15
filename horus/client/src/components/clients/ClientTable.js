@@ -1,8 +1,21 @@
 import React from 'react';
+import axios from 'axios';
 import './ClientTable.css';
 
 
 class ClientTable extends React.Component{
+
+    state = {
+        clients: []
+    }
+
+    componentDidMount(){
+        axios.get('http://localhost:5000/api/clients')
+            .then(res => {
+                console.log(res.data.data);
+                this.setState({ clients: res.data })
+            })
+    }
 
     render(){
         return(
@@ -49,6 +62,9 @@ class ClientTable extends React.Component{
                         </tr>
                     </tbody>
                 </table>
+            <ul>
+                {this.state.clients}
+            </ul>
             </div>
         )
     }

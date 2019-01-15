@@ -20,7 +20,7 @@ class Client(Base):
     state = Column(String(30))
     city = Column(String(30)) # Contains a relationship
     postal_code = Column(Integer)
-    sicknesses = Column(String(30)) # Contains a relationship
+    sicknesess = Column(String(30)) # Contains a relationship
     surgeries = Column(String(30)) # Contains a relationship
     emergency_contact = Column(String(30)) # Contains a relationship
     profession = Column(String(30)) # Contains a relationship
@@ -78,7 +78,7 @@ class Client(Base):
             state = self.state,
             city = self.city,
             postal_code = self.postal_code,
-            sicknesess = self.sicknessess,
+            sicknesess = self.sicknesess,
             surgeries = self.surgeries,
             emergency_contact = self.emergency_contact,
             profession = self.profession,
@@ -101,7 +101,7 @@ class Client(Base):
         self.state = data['user']['state']
         self.city = data['user']['city']
         self.postal_code = data['user']['postal_code']
-        self.sickneses = data['user']['sicknesess']
+        self.sicknesess = data['user']['sicknesess']
         self.surgeries = data['user']['surgeries']
         self.emergency_contact = data['user']['emergency_contact']
         self.profession = data['user']['profession']
@@ -113,11 +113,8 @@ class Client(Base):
         try:
             # Verify client doesn't exist
             # Insert client to the databasex
-            ins = inspect(client)
             session.add(client)
-            print('Transient: {}; Pending: {}; Persistent: {}; Detached: {}'.format(ins.transient, ins.pending, ins.persistent, ins.detached))
             session.commit()
-            print('Transient: {}; Pending: {}; Persistent: {}; Detached: {}'.format(ins.transient, ins.pending, ins.persistent, ins.detached))
             # Get a response from database and return it
             msg = "Client created successfully"
             response = { "data":msg }
@@ -126,8 +123,17 @@ class Client(Base):
             print(e)
             session.rollback()
     
-    def get(self, client):
-        pass
+    @staticmethod
+    def get_all():
+        try:
+            clients = session.query(Client).all()
+            if len(clients) == 0:
+                return "No hay clientes registrados"
+            elif len(clients) > 0:
+                clients = [client.to_dict() for client in clients]
+                return clients
+        except Exception as e:
+            print(e)
     
     def update(self, client):
         pass

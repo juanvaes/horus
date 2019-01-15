@@ -5,11 +5,15 @@ from urllib.parse import urlparse
 from application.api import appi
 from application.models import Client
 
+@appi.route('/clients', methods=['GET'])
+def get_clients_all():
+    clients = Client.get_all()
+    print(clients)
+    return jsonify({'data':clients})
+
 @appi.route('/client/search', methods=['GET'])
 def get_client():
-    custest = Client('Juan','Valencia','jcvalencia22@gmail.com','123456')
-    custest = str(custest)
-    return jsonify({'message':custest})
+    return jsonify({'data':'proving'})
 
 @appi.route('/client/', methods=['POST'])
 def post_client():
