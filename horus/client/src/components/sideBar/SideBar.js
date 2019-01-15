@@ -12,10 +12,13 @@ class SideBar extends React.Component {
                         <NavLink href="/">Inicio</NavLink>
                     </NavItem>
                     <NavItem id="element">
-                        <NavLink href="/client">Usuarios</NavLink>
+                        <NavLink href="/client">Registrar Usuario</NavLink>
                     </NavItem>
                     <NavItem id="element">
-                        <NavLink href="/payment">Pagos</NavLink>
+                        <NavLink href="/clients">Usuarios</NavLink>
+                    </NavItem>
+                    <NavItem id="element">
+                        <NavLink href="/payment">Registrar Pago</NavLink>
                     </NavItem>
                 </Nav>
 

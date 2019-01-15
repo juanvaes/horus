@@ -17,7 +17,7 @@ def post_client():
     client = Client()
     client.to_obj(data)
     response = Client.create(client)
-    return jsonify({'message':'<h1> Response </h1>'})
+    return jsonify({'message': response})
 
 @appi.route('/client/', methods=['PUT'])
 def put_client():
