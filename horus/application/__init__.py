@@ -9,8 +9,8 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
-
-DATABASE_URI = 'mysql+pymysql://dellsupport:09876@localhost/horux'
+DATABASE_URI = 'mysql+pymysql://juancamilo:4454861@localhost/horux'   #home
+# #DATABASE_URI = 'mysql+pymysql://dellsupport:09876@localhost/horux'   #work
 
 # Base is a factory function that constructs a base class, and the entities 
 # are going to inherit from it 

@@ -12,12 +12,28 @@ class ClientTable extends React.Component{
     componentDidMount(){
         axios.get('http://localhost:5000/api/clients')
             .then(res => {
-                console.log(res.data.data);
-                this.setState({ clients: res.data })
+                console.log(res.data);
+                this.setState({ 
+                    clients: res.data.data 
+                })
             })
     }
 
     render(){
+        const { clients } = this.state;
+        const clientList = clients.length ? (
+            clients.map(client => {
+                return (
+                    <div className="post" key={client.id}>
+                        <div>
+                            <span>{client.fname}</span>
+                        </div>
+                    </div>
+                )
+            })
+        ) : (
+            <div className="center"> No hay clientes registrados </div>
+        )
         return(
             <div>
                 <table>
@@ -63,7 +79,7 @@ class ClientTable extends React.Component{
                     </tbody>
                 </table>
             <ul>
-                {this.state.clients}
+                {clientList}
             </ul>
             </div>
         )

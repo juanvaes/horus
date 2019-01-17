@@ -65,6 +65,7 @@ class Client(Base):
 
     def to_dict(self):
         client_info = dict(
+            id = self.id,
             fname = self.fname,
             lname = self.lname,
             identification = self.identification,
