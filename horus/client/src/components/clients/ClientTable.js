@@ -12,7 +12,6 @@ class ClientTable extends React.Component{
     componentDidMount(){
         axios.get('http://localhost:5000/api/clients')
             .then(res => {
-                console.log(res.data);
                 this.setState({ 
                     clients: res.data.data 
                 })
@@ -24,18 +23,25 @@ class ClientTable extends React.Component{
         const clientList = clients.length ? (
             clients.map(client => {
                 return (
-                    <div className="post" key={client.id}>
-                        <div>
-                            <span>{client.fname}</span>
-                        </div>
-                    </div>
+                    <tr key={client.id}>
+                        <td>{client.id}</td>
+                        <td>{client.identification}</td>
+                        <td>{client.fname}</td>
+                        <td>{client.lname}</td>
+                        <td>Calculable</td>
+                        <td>{client.is_competitor}</td>
+                        <td>Calculable</td>
+                        <td>Calculable</td>
+                        <td>{client.last_day_visited}</td>
+                        <td><a href="#">Ver</a></td>
+                    </tr>
                 )
             })
         ) : (
             <div className="center"> No hay clientes registrados </div>
         )
         return(
-            <div>
+            <div className="client-page">
                 <table>
                     <thead>
                         <tr>
@@ -52,35 +58,9 @@ class ClientTable extends React.Component{
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>1144076879</td>
-                            <td>Juan</td>
-                            <td>Valencia</td>
-                            <td>Siempre</td>
-                            <td>Si</td>
-                            <td>No</td>
-                            <td>Pionero</td>
-                            <td>2018/01/14</td>
-                            <td>Ver</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>1144041716</td>
-                            <td>John</td>
-                            <td>Valencia</td>
-                            <td>Media</td>
-                            <td>No</td>
-                            <td>No</td>
-                            <td>Pionero</td>
-                            <td>2018/01/12</td>
-                            <td>Ver</td>
-                        </tr>
+                        {clientList}
                     </tbody>
                 </table>
-            <ul>
-                {clientList}
-            </ul>
             </div>
         )
     }

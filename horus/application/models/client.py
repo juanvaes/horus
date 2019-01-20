@@ -31,6 +31,9 @@ class Client(Base):
     is_frozen = Column(Boolean)
     payment_id = Column(Integer) # Contains a relationship
     picture = Column(String(30)) 
+    # Variable para saber si debe plata
+    # Variable para saber su actividad
+    # variable para saber su plan
 
     """
     def __init__(
