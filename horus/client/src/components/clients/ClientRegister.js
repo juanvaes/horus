@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import './ClientRegister.css'
 
 class ClientRegister extends React.Component{
     state = {
@@ -20,7 +21,7 @@ class ClientRegister extends React.Component{
         surgeries: null,
         emergency_contact: null,
         profession: null,
-        hobbies: null,
+        hobbies: {},
     }
 
     handleChange = (e) => {
@@ -39,7 +40,16 @@ class ClientRegister extends React.Component{
                 console.log(res);
                 console.log(res.data);
             })
-        this.state = null;
+        this.setState({
+        });
+    }
+
+    createHobbie = (event) => {
+        event.preventDefault();
+        const hobbieElement = document.getElementById('hobbies');
+        var element = hobbieElement.childNodes[0].childNodes[0];
+        var newInput = document.createElement('input');
+        element.appendChild(newInput);
     }
 
     render(){
@@ -120,41 +130,55 @@ class ClientRegister extends React.Component{
                         </div>
                     </div>
                     
+                    {/*GAP*/}
                     <br/><br/>
                     <hr/>
                     <br/>
-
-                    <div className="row">
-                        <div className="col-lg-12">
-                                {/*hobbies*/}
-                                <h4><label>Hobbies: </label></h4>
-                                <input type="text" id="hobbies" onChange={this.handleChange} placeholder="ej. lectura"/>
+                    <div id="hobbies">
+                        <div className="row">
+                            <div className="col-lg-11">
+                                    {/*hobbies*/}
+                                    <h4><label>Hobbies: </label></h4>
+                                    <input type="text" id="hobbies" onChange={this.handleChange} placeholder="ej. lectura"/>
+                            </div>
+                            <div className="col-lg-1">
+                                <button onClick={this.createHobbie} className="add-input">Añadir</button>
+                            </div>
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-lg-12">
-                            {/*emergency contact*/}
-                            <h4><label>Contacto de Emergencia: </label></h4>
-                            <input type="text" id="emergency_contact" onChange={this.handleChange} placeholder="ej. sebastian camargo"/>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-lg-12">
+                        <div className="col-lg-11">
                             {/*sicknesess*/}
                             <h4><label>Enfermedades: </label></h4>
                             <input type="text" id="sicknesess" onChange={this.handleChange} placeholder="ej. Cali"/>
                         </div>
-                    </div>
-                    <div className="row">
-                    <div className="col-lg-12">
-                            {/*surgeries*/}
-                            <h4><label>Cirugias: </label></h4>
-                            <input type="text" id="surgeries" onChange={this.handleChange} placeholder="ej. Cali"/>
+                        <div className="col-lg-1">
+                            <button className="add-input">Añadir</button>
                         </div>
                     </div>
-
+                    <div className="row">
+                        <div className="col-lg-11">
+                                {/*surgeries*/}
+                                <h4><label>Cirugias: </label></h4>
+                                <input type="text" id="surgeries" onChange={this.handleChange} placeholder="ej. Cali"/>
+                        </div>
+                        <div className="col-lg-1">
+                            <button className="add-input">Añadir</button>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-lg-11">
+                            {/*emergency contact*/}
+                            <h4><label>Contacto de Emergencia: </label></h4>
+                            <input type="text" id="emergency_contact" onChange={this.handleChange} placeholder="ej. sebastian camargo"/>
+                            
+                        </div>
+                        <div className="col-lg-1">
+                            <button className="add-input">Añadir</button>
+                        </div>
+                    </div>
                     <br/>
-                    <button>Submit</button>
+                    <button className="register-button">Registrar</button>
                 </form>
             </div>
         )
