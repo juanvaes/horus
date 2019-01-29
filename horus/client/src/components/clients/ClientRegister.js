@@ -21,13 +21,19 @@ class ClientRegister extends React.Component{
         surgeries: null,
         emergency_contact: null,
         profession: null,
-        hobbies: {},
+        hobbies: [],
     }
 
     handleChange = (e) => {
         this.setState({
             [e.target.id]: e.target.value
         });
+    }
+
+    handleHobbieChange = (event) => {
+        this.setState({
+            hobbies: [...this.state.hobbies, event.target.value],
+        })
     }
 
     handleSubmit = (event) => {
@@ -49,6 +55,9 @@ class ClientRegister extends React.Component{
         const hobbieElement = document.getElementById('hobbies');
         var element = hobbieElement.childNodes[0].childNodes[0];
         var newInput = document.createElement('input');
+        newInput.setAttribute('id','hobbies');
+        newInput.setAttribute('type','text');
+        newInput.addEventListener('change',this.handleHobbieChange)
         element.appendChild(newInput);
     }
 
@@ -139,7 +148,7 @@ class ClientRegister extends React.Component{
                             <div className="col-lg-11">
                                     {/*hobbies*/}
                                     <h4><label>Hobbies: </label></h4>
-                                    <input type="text" id="hobbies" onChange={this.handleChange} placeholder="ej. lectura"/>
+                                    <input type="text" id="hobbies" onBlur={this.handleHobbieChange} placeholder="ej. lectura"/>
                             </div>
                             <div className="col-lg-1">
                                 <button onClick={this.createHobbie} className="add-input">Añadir</button>
