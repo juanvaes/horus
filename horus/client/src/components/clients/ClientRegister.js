@@ -146,7 +146,7 @@ class ClientRegister extends React.Component{
                     <hr/>
                     <br/>
                     {/*Hobbies*/}
-                    <DynamicInput></DynamicInput>
+                    <DynamicInput hobbies={this.state.hobbies}></DynamicInput>
                     {/*sicknesses*/}
                     <DynamicInput></DynamicInput>
                     {/*surgeries*/}
