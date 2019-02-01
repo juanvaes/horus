@@ -145,15 +145,49 @@ class ClientRegister extends React.Component{
                     <br/><br/>
                     <hr/>
                     <br/>
-                    {/*Hobbies*/}
-                    <DynamicInput hobbies={this.state.hobbies}></DynamicInput>
-                    {/*sicknesses*/}
-                    <DynamicInput></DynamicInput>
-                    {/*surgeries*/}
-                    <DynamicInput></DynamicInput>
-                    {/*emergency contact*/}
-                    <DynamicInput></DynamicInput>
-                    
+                    <div id="hobbies">
+                        {/*hobbies*/}
+                        <h4><label>Hobbies: </label></h4>
+                        <div className="row">
+                            <div className="col-lg-11">
+                                    <input type="text" id="hobbies" onChange={this.handleChange} placeholder="ej. lectura"/>
+                            </div>
+                            <div className="col-lg-1">
+                                <button onClick={this.createHobbie} className="add-input">Añadir</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-lg-11">
+                            {/*sicknesess*/}
+                            <h4><label>Enfermedades: </label></h4>
+                            <input type="text" id="sicknesess" onChange={this.handleChange} placeholder="ej. Cali"/>
+                        </div>
+                        <div className="col-lg-1">
+                            <button className="add-input">Añadir</button>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-lg-11">
+                                {/*surgeries*/}
+                                <h4><label>Cirugias: </label></h4>
+                                <input type="text" id="surgeries" onChange={this.handleChange} placeholder="ej. Cali"/>
+                        </div>
+                        <div className="col-lg-1">
+                            <button className="add-input">Añadir</button>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-lg-11">
+                            {/*emergency contact*/}
+                            <h4><label>Contacto de Emergencia: </label></h4>
+                            <input type="text" id="emergency_contact" onChange={this.handleChange} placeholder="ej. sebastian camargo"/>
+                            
+                        </div>
+                        <div className="col-lg-1">
+                            <button className="add-input">Añadir</button>
+                        </div>
+                    </div>
                     <br/>
                     <button className="register-button">Registrar</button>
                 </form>
