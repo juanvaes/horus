@@ -135,10 +135,10 @@ class ClientRegister extends React.Component{
                     <hr/>
                     <br/>
                     <div id="hobbies">
+                        {/*hobbies*/}
+                        <h4><label>Hobbies: </label></h4>
                         <div className="row">
                             <div className="col-lg-11">
-                                    {/*hobbies*/}
-                                    <h4><label>Hobbies: </label></h4>
                                     <input type="text" id="hobbies" onChange={this.handleChange} placeholder="ej. lectura"/>
                             </div>
                             <div className="col-lg-1">
