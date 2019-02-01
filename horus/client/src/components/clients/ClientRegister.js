@@ -1,7 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-
-import DynamicInput from '../dynamicInput/dynamicInput'
 import './ClientRegister.css'
 
 class ClientRegister extends React.Component{
@@ -19,7 +17,7 @@ class ClientRegister extends React.Component{
         state: null,
         city: null,
         postal_code: null,
-        sicknesess: null,
+        sicknesess: [],
         surgeries: null,
         emergency_contact: null,
         profession: null,
@@ -30,12 +28,6 @@ class ClientRegister extends React.Component{
         this.setState({
             [e.target.id]: e.target.value
         });
-    }
-
-    handleHobbieChange = (event) => {
-        this.setState({
-            hobbies: [...this.state.hobbies, event.target.value],
-        })
     }
 
     handleSubmit = (event) => {
@@ -52,16 +44,51 @@ class ClientRegister extends React.Component{
         });
     }
 
-    createHobbie = (event) => {
+    addHb1 = (event) => {
         event.preventDefault();
-        const hobbieElement = document.getElementById('hobbies');
-        var element = hobbieElement.childNodes[0].childNodes[0];
-        var newInput = document.createElement('input');
-        newInput.setAttribute('id','hobbies');
-        newInput.setAttribute('type','text');
-        newInput.addEventListener('change',this.handleHobbieChange)
-        element.appendChild(newInput);
-    }
+        const hb1 = document.getElementById('hb1');
+        this.setState({
+            hobbies: this.state.hobbies.concat({'hobbie': hb1.childNodes[0].value}),
+            });
+        }
+
+    addHb2 = (event) => {
+        event.preventDefault();
+        const hb2 = document.getElementById('hb2');
+        this.setState({
+            hobbies: this.state.hobbies.concat({'hobbie': hb2.childNodes[0].value}),
+            });
+        }
+    addHb3 = (event) => {
+        event.preventDefault();
+        const hb3 = document.getElementById('hb3');
+        this.setState({
+            hobbies: this.state.hobbies.concat({'hobbie': hb3.childNodes[0].value}),
+            });
+        }
+
+    addSk1 = (event) => {
+        event.preventDefault();
+        const sk = document.getElementById('sk1');
+        this.setState({
+            sicknesess: this.state.sicknesess.concat({'sickness': sk.childNodes[0].value}),
+            });
+        }
+
+    addSk2 = (event) => {
+        event.preventDefault();
+        const sk = document.getElementById('sk2');
+        this.setState({
+            sicknesess: this.state.sicknesess.concat({'sickness': sk.childNodes[0].value}),
+            });
+        }
+    addSk3 = (event) => {
+        event.preventDefault();
+        const sk = document.getElementById('sk3');
+        this.setState({
+            sicknesess: this.state.sicknesess.concat({'sickness': sk.childNodes[0].value}),
+            });
+        }
 
     render(){
         return(
@@ -148,23 +175,79 @@ class ClientRegister extends React.Component{
                     <div id="hobbies">
                         {/*hobbies*/}
                         <h4><label>Hobbies: </label></h4>
+                        <hr/>
+                        <h6><label>Hobbie 1: </label></h6>
                         <div className="row">
                             <div className="col-lg-11">
-                                    <input type="text" id="hobbies" onChange={this.handleChange} placeholder="ej. lectura"/>
+                                <div id="hb1">
+                                    <input type="text" id="hobbies" placeholder="ej. lectura"/>
+                                </div>
                             </div>
                             <div className="col-lg-1">
-                                <button onClick={this.createHobbie} className="add-input">Añadir</button>
+                                <button onClick={this.addHb1} className="add-input">Añadir</button>
+                            </div>
+                        </div>
+                        <h6><label>Hobbie 2: </label></h6>
+                        <div className="row">
+                            <div className="col-lg-11">
+                                <div id="hb2">
+                                    <input type="text" id="hobbies"  placeholder="ej. lectura"/>
+                                </div>
+                            </div>
+                            <div className="col-lg-1">
+                                <button onClick={this.addHb2} className="add-input">Añadir</button>
+                            </div>
+                        </div>
+                        <h6><label>Hobbie 3: </label></h6>
+                        <div className="row">
+                            <div className="col-lg-11">
+                                <div id="hb3">
+                                    <input type="text" id="hobbies"  placeholder="ej. lectura"/>
+                                </div>
+                            </div>
+                            <div className="col-lg-1">
+                                <button onClick={this.addHb3} className="add-input">Añadir</button>
                             </div>
                         </div>
                     </div>
-                    <div className="row">
-                        <div className="col-lg-11">
-                            {/*sicknesess*/}
-                            <h4><label>Enfermedades: </label></h4>
-                            <input type="text" id="sicknesess" onChange={this.handleChange} placeholder="ej. Cali"/>
+                    <hr/>
+                    
+                    <div id="sicknesess">
+                        {/*sicknesess*/}
+                        <h4><label>Sicknesess: </label></h4>
+                        <hr/>
+                        <h6><label>Number 1: </label></h6>
+                        <div className="row">
+                            <div className="col-lg-11">
+                                <div id="sk1">
+                                    <input type="text" id="sicknesses"/>
+                                </div>
+                            </div>
+                            <div className="col-lg-1">
+                                <button onClick={this.addSk1} className="add-input">Añadir</button>
+                            </div>
                         </div>
-                        <div className="col-lg-1">
-                            <button className="add-input">Añadir</button>
+                        <h6><label>Number 2: </label></h6>
+                        <div className="row">
+                            <div className="col-lg-11">
+                                <div id="sk2">
+                                    <input type="text" id="sicknesses"/>
+                                </div>
+                            </div>
+                            <div className="col-lg-1">
+                                <button onClick={this.addSk2} className="add-input">Añadir</button>
+                            </div>
+                        </div>
+                        <h6><label>Number 3: </label></h6>
+                        <div className="row">
+                            <div className="col-lg-11">
+                                <div id="sk3">
+                                    <input type="text" id="sicknesses"/>
+                                </div>
+                            </div>
+                            <div className="col-lg-1">
+                                <button onClick={this.addSk3} className="add-input">Añadir</button>
+                            </div>
                         </div>
                     </div>
                     <div className="row">
